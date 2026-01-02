@@ -1,5 +1,8 @@
 import argparse
 
+def start_game():
+    pass
+
 def main():
     parser = argparse.ArgumentParser(description="Wordle game")
     
@@ -11,7 +14,7 @@ def main():
 
     # test
     if args.start:
-        print("Game start requested")
+        start_game()
 
 
 
