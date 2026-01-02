@@ -1,4 +1,14 @@
 import argparse
+import random
+
+def load_words():
+    words = []
+    with open("data/words.txt", "r", encoding="utf-8") as file:
+        for line in file:
+            line.strip()
+            words.append(line)
+    
+    return words
 
 def start_game():
     pass
