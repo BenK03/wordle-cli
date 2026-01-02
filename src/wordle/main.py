@@ -11,7 +11,31 @@ def load_words():
     return words
 
 def start_game():
-    pass
+    words = load_words()
+    target_word = random.choice(words)
+
+    guesses_left = 6
+
+    while guesses_left > 0:
+        guess = input("Enter a 5 letter word: ").strip().lower()
+
+        if len(guess) != 5:
+            print("Invalid guess. Only 5 letter words.")
+            continue
+            
+        if not guess.isalpha():
+            print("Invalid guess. Only letters.")
+            continue
+
+        if guess == target_word:
+            #temp (add play again after)
+            print("Congrats, you got it!")
+            return
+
+        guesses_left -= 1
+
+    # temp (add play again after)
+    print("Game over")
 
 def main():
     parser = argparse.ArgumentParser(description="Wordle game")
