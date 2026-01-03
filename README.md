@@ -57,17 +57,17 @@ uv run wordle --help  # Rules and how to play
 wordle-cli/
 ├── assets/
 │   └── preview.png          # Screenshot preview of the CLI gameplay
-├── data/
-│   └── words.txt            # Custom list of valid 5-letter words
 ├── docs/
 │   └── specs.md             # Project requirements and design specifications
 ├── src/
 │   └── wordle/
 │       ├── __init__.py      # Marks the wordle package
-│       └── main.py          # Core game logic and CLI entrypoint
+│       ├── main.py          # Core game logic and CLI entrypoint
+│       └── data/
+│           └── words.txt    # Bundled list of valid 5-letter words
 ├── tests/
 │   └── __init__.py          # Placeholder for future tests
-├── pyproject.toml           # Project metadata and CLI configuration
+├── pyproject.toml           # Project metadata, CLI entrypoint, and packaging config
 ├── uv.lock                  # uv lockfile for reproducible environments
 ├── LICENSE                  # Project license
 └── README.md                # Project documentation
