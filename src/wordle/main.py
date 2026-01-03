@@ -115,6 +115,7 @@ def start_game():
         guesses_left -= 1
 
     print("Game over")
+    print(f"The word was: {target_word}")
     ans = play_again()
     if ans:
         return start_game()
