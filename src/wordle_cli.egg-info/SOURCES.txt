@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/wordle/__init__.py
+src/wordle/main.py
+src/wordle_cli.egg-info/PKG-INFO
+src/wordle_cli.egg-info/SOURCES.txt
+src/wordle_cli.egg-info/dependency_links.txt
+src/wordle_cli.egg-info/entry_points.txt
+src/wordle_cli.egg-info/top_level.txt

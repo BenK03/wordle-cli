@@ -1,0 +1,11 @@
+[project]
+name = "wordle-cli"
+version = "0.1.0"
+description = "Terminal-based Wordle clone packaged as a Python CLI"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+[project.scripts]
+wordle = "wordle.main:main"
+[tool.uv]
+package = true
