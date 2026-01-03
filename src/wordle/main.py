@@ -1,12 +1,18 @@
 import argparse
 import random
 
+# constants
+GREEN = "\033[1;42m"
+YELLOW = "\033[1;43m"
+GRAY = "\033[1;100m"
+RESET = "\033[0m"
+
 # puts all words into an array
 def load_words():
     words = []
     with open("data/words.txt", "r", encoding="utf-8") as file:
         for line in file:
-            line.strip()
+            line = line.strip()
             words.append(line)
     
     return words
@@ -32,6 +38,24 @@ def evaluate_guess(guess, target_word):
 
     return feedback
 
+def render_colours(guess, feedback):
+    output = ""
+
+    for i in range(5):
+        if feedback[i] == "green":
+            colour = GREEN
+
+        elif feedback[i] == "yellow":
+            colour = YELLOW
+
+        else:
+            colour = GRAY
+
+        output += f"{colour} {guess[i].upper()} {RESET}"
+
+    # testing
+    print(output)
+
 # game logic/start game
 def start_game():
     words = load_words()
@@ -50,15 +74,13 @@ def start_game():
             print("Invalid guess. Only letters.")
             continue
 
-        elif guess == target_word:
+        feedback = evaluate_guess(guess, target_word)
+        render_colours(guess, feedback)
+
+        if guess == target_word:
             #temp (add play again after and green colouring)
             print("Congrats, you got it!")
             return
-        
-        else:
-            # guess is valid but not target
-            # add green colouring
-            evaluate_guess(guess, target_word)
             
         guesses_left -= 1
 
