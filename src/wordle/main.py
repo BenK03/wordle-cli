@@ -1,5 +1,6 @@
 import argparse
 import random
+from importlib import resources
 
 # constants
 GREEN = "\033[1;42m"
@@ -23,11 +24,11 @@ Rules:
 # puts all words into an array
 def load_words():
     words = []
-    with open("data/words.txt", "r", encoding="utf-8") as file:
+    with resources.files("wordle").joinpath("data/words.txt").open("r", encoding="utf-8") as file:
         for line in file:
             line = line.strip()
-            words.append(line)
-    
+            if line:
+                words.append(line)
     return words
 
 # finds feedback for each letter
