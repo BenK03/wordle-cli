@@ -29,7 +29,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 # Install Wordle globally from source
 git clone <repository-url>
 cd wordle-cli
-uv tool install --from . wordle
+uv tool install --from . wordle-cli
 ```
 Once installed, run Wordle:
 ```bash
