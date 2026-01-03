@@ -7,6 +7,19 @@ YELLOW = "\033[1;43m"
 GRAY = "\033[1;100m"
 RESET = "\033[0m"
 
+GAME_RULES = """
+Wordle (Terminal Version)
+
+Rules:
+- Guess the hidden 5-letter word in 6 attempts.
+- Each guess must be a valid 5-letter word.
+- After each guess, letters are colored:
+  Green  : correct letter in the correct position
+  Yellow : correct letter in the wrong position
+  Gray   : letter not in the word
+- You win by guessing the word within 6 tries.
+"""
+
 # puts all words into an array
 def load_words():
     words = []
@@ -111,7 +124,7 @@ def start_game():
 
 # controls commands
 def main():
-    parser = argparse.ArgumentParser(description="Wordle game")
+    parser = argparse.ArgumentParser(description="Wordle game", epilog=GAME_RULES, formatter_class=argparse.RawDescriptionHelpFormatter)
     
     # add an argument --start
     parser.add_argument( "--start", action="store_true", help="Start a new Wordle game")
