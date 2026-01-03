@@ -56,6 +56,19 @@ def render_colours(guess, feedback):
     # testing
     print(output)
 
+# play again function
+def play_again():
+    ans = input("Play again? (y/n): ").strip().lower()
+
+    if ans != "y" and ans != "n":
+        print("Invalid input. Please enter y or n.")
+        return play_again()
+
+    if ans == "y":
+        return True
+    
+    return False
+
 # game logic/start game
 def start_game():
     words = load_words()
@@ -78,14 +91,23 @@ def start_game():
         render_colours(guess, feedback)
 
         if guess == target_word:
-            #temp (add play again after and green colouring)
             print("Congrats, you got it!")
+            ans = play_again()
+
+            if ans:
+                return start_game()
             return
             
         guesses_left -= 1
 
-    # temp (add play again after)
     print("Game over")
+    ans = play_again()
+    if ans:
+        return start_game()
+    return
+
+    
+
 
 # controls commands
 def main():
